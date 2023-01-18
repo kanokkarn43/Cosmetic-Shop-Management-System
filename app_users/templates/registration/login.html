@@ -1,0 +1,23 @@
+{% extends 'base_blank.html' %}
+
+{% block site_title %}Log in{% endblock %}
+
+{% block content %}
+
+<center><br><section class="content-section content-section-single">
+  <br><br><h1>Cosmetic Shop Management System</h1><br><br>
+  <div class="content-container content-container-narrow">
+    <h3 class="content-title">Log in</h3><br>
+    <form action="{% url 'login' %}" method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <p>
+      <button class="button button-primary" type="submit">Log in</button>
+      </p>
+    </form>
+  </div>
+</section></center>
+{% endblock %}
+
+
+

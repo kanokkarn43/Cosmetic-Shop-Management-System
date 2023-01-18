@@ -1,0 +1,34 @@
+{% extends 'salereport/salereport.html' %}
+{% block content %}
+    
+    <table class='table'>
+        <tr>
+            <th>#</th>
+            {% for name in column_name %}
+            <th>{{ name }} </th>
+            {% endfor %}
+        </tr>
+
+    {% for lineitem in data %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ lineitem.order_id }}</td>
+            <td>{{ lineitem.order_date }}</td>
+            <td>{{ lineitem.contact }}</td>
+            <td>{{ lineitem.amount }}</td>
+        <tr>
+    {% endfor %}
+    
+    <table class='table'>
+        <tr>
+            {% for name in column_name2 %}
+            <th>{{ name }} </th>
+            {% endfor %}
+        </tr>
+    {% for value in data2 %}
+        <tr>
+            <td>{{ value.sales_total}}</td>
+        <tr>
+    {% endfor %}
+
+{% endblock %}

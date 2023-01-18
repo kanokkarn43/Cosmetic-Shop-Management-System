@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Orders{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/order.js' %}"></script> 
+{% endblock %}
+
+{% block content %}
+
+    <nav class="navbar navbar-expand-sm bg-info navbar-dark">
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+        <a class="nav-link" href="#">Orders</a> 
+        </li>
+    </ul>
+    </nav>
+    <br />
+    <!--<form id='form_invoice' action='/'>-->
+    {% csrf_token %}
+    <div class="container-fluid">
+        <div class='form-row'>
+            <div class="col-lg-4 col-md-8 col-12 col-auto">
+                <div class='input-group mb-2'>
+                    <div class='input-group-prepend'>
+                        <div class='input-group-text'>Order ID :</div>
+                    </div>
+                    <input type='text' id='txt_OrderID' name='order_id' class='form-control' placeholder='Enter Order ID' required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Check this checkbox to continue.</div>
+                    <button type='button' class="btn btn-default">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </div>
+            </div> 
+            <div class="col-lg-4 col-md-8 col-12 col-auto">
+                    Order Date :<input type='text' id='txt_OrderDate' name='order_date' class='form-control' value='' readonly>
+                    Member Contact :<input type='text' id='txt_Contact' name='contact' class='form-control' value='' readonly>
+                    Amount :<input type='text' id='txt_Amount' name='amount' class='form-control' value='' readonly>
+            </div>
+        </div>
+    </div> 
+    <br>
+    
+    <ul class="nav">
+        <li><a href="/order/AllOrder">All Order</a></li> 
+    </ul>
+
+            <tbody>
+            </tbody>
+            
+{% endblock %}

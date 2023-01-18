@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Products{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/products.js' %}"></script> 
+{% endblock %}
+
+{% block content %}
+
+    <nav class="navbar navbar-expand-sm bg-info navbar-dark">
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+        <a class="nav-link" href="#">Products</a>
+        </li>
+    </ul>
+    </nav>
+    <br />
+    <!-- <form id='form_invoice' action='/'> -->
+    {% csrf_token %}
+    <div class="container-fluid">
+        <div class='form-row'>
+            <div class="col-lg-4 col-md-8 col-12 col-auto">
+                <div class='input-group mb-2'>
+                    <div class='input-group-prepend'>
+                        <div class='input-group-text'>Product Code :</div>
+                    </div>
+                    <input type='text' id='txt_ProductCode' name='product_code' class='form-control' placeholder='Enter Product Code' required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Check this checkbox to continue.</div>
+                    <button type='button' class="btn btn-default">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-6 col-auto">
+                    Product Name :<input type='text' id='txt_ProductName' name='product_name' class='form-control' value='' readonly>  
+                    Quantity :<input type='text' id='txt_Quantity' name='quantity' class='form-control' value='' readonly>
+                    Inventory :<input type='text' id='txt_Inventory' name='inventory' class='form-control' value='' readonly>
+            </div>
+            <div class="col-lg-4 col-md-6 col-6 col-auto">
+                    Unit Price :<input type='text' id='txt_Price' name='price' class='form-control' value='' readonly>
+                    Unit Sales :<input type='text' id='txt_SoldNo' name='sold_no' class='form-control' value='' readonly>
+            </div>
+        </div>
+    </div>
+    <br>
+    All Category
+
+            <ul class="nav">
+                <li><a href="/products/AllBathAndBody">Bath & Body</a></li>
+                <li><a href="/products/AllSkinCare">Skincare</a></li>
+                <li><a href="/products/AllMakeUp">Makeup</a></li>
+                <li><a href="/products/AllFragrances">Fragrances</a></li>
+            </ul>
+
+            <tbody>
+            </tbody>
+            
+{% endblock %}

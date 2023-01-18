@@ -1,0 +1,54 @@
+{% load static %}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/glyphicon.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'css/cpe.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+
+    {% block script %}
+    {% endblock %} 
+
+<body>
+
+    <ul class="nav bg-info">
+    {% if user.is_authenticated %}
+    <div class="right-content">
+        <a href="#">
+            &nbsp;<span><font color = white>{{ user.username }}</font></span>&nbsp;
+        </a>
+    </div>
+    <div class="right-content">
+        <form action="{% url 'logout' %}">
+        {% csrf_token %}
+        <p><button type="submit">
+            <span>ออกจากระบบ</span></button>
+        </p>
+        </form>
+    </div>
+    {% endif %}    
+    </ul>
+
+    <ul class="nav bg-info">
+        <li><a href="/products">Products</a></li> 
+        <li><a href="/sale">Sale</a></li>
+        <li><a href="/order">Orders</a></li>
+        <li><a href="/salereport">Sale Report</a></li> 
+    </ul>
+
+    {% block sub_menu %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

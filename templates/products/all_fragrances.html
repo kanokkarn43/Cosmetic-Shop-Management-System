@@ -1,0 +1,24 @@
+{% extends 'products/products.html' %}
+
+{% block content %}
+    
+    <table class='table'>
+        <tr>
+            <th>#</th>
+            {% for name in column_name %}
+            <th>{{ name }} </th>
+            {% endfor %}
+        </tr>
+    {% for lineitem in data %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ lineitem.product_code }}</td>
+            <td>{{ lineitem.product_name }}</td>
+            <td>{{ lineitem.price }}</td>
+            <td>{{ lineitem.sold_no }}</td>
+            <td>{{ lineitem.quantity }}</td>
+            <td>{{ lineitem.inventory }}</td>
+        <tr>
+    {% endfor %}
+    
+{% endblock %}

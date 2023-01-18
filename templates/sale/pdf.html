@@ -1,0 +1,53 @@
+{% extends 'base_blank.html' %}
+{% load static %}
+
+{% block title %}Receipt{% endblock %}
+
+{% block title_name %}Receipt{% endblock %}
+
+{% block script %}
+{% endblock %}
+
+{% block content %}
+<br>
+<div id='content'>
+    <div class='row'>
+        <div class='col-sm'>
+        Order ID: {{ all_order.order_id }}<br>
+        </div>
+        <div class='col-sm'>
+        Order Date: {{ all_order.order_date }}<br>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-sm'>
+        Contact Member: {{ all_order.contact }}<br>
+        </div>
+    </div>
+    <br>
+    <table class='table'>
+        <tr>
+            <th>#</th>
+            <th>Product Code</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Extended Price</th>
+        </tr>
+    {% for lineitem in orderlineitem %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ lineitem.product_code }}</td>
+            <td>{{ lineitem.price }}</td>
+            <td>{{ lineitem.quantity }}</td>
+            <td>{{ lineitem.product_total }}</td>
+        </tr>
+    {% endfor %}
+        <tr>
+            <td colspan='4'></td>
+            <td align='right'>Total Price :</td><td>{{ all_order.amount }}</td>
+        </tr>
+        
+    </table>
+</div>
+{% endblock %}
+
