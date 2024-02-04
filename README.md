@@ -8,5 +8,5 @@ developed using Python Django with PostgreSQL
 for the database and HTML, CSS, and JavaScript
 for the user interface.
 
-Video Demo Link: ```https://drive.google.com/file/d/1lR2DLun1AQ7YK6yUTLxMxwYXwDoerVkK/view?usp=sharing```
+__Video Demo Link:__ <https://drive.google.com/file/d/1lR2DLun1AQ7YK6yUTLxMxwYXwDoerVkK/view?usp=sharing)>
 
